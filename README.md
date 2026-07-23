@@ -1,1 +1,1 @@
-# calculater-app
+# calculator-app
