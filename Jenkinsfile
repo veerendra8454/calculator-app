@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                dir('calculator-app') {
+                dir('calculater-app') {
                     sh 'mvn clean compile'
                 }
             }
@@ -12,7 +12,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                dir('calculator-app') {
+                dir('calculater-app') {
                     sh 'mvn test'
                 }
             }
@@ -20,7 +20,7 @@ pipeline {
 
         stage('Package') {
             steps {
-                dir('calculator-app') {
+                dir('calculater-app') {
                     sh 'mvn package'
                 }
             }
