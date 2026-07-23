@@ -1,20 +1,29 @@
 pipeline {
-agent { label 'linux-agent' }
-stages {
-stage('Build') {
-steps {
-sh 'mvn clean compile'
-}
-}
-stage('Test') {
-steps {
-sh 'mvn test'
-}
-}
-stage('Package') {
-steps {
-sh 'mvn package'
-}
-}
-}
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                dir('calculator-app') {
+                    sh 'mvn clean compile'
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                dir('calculator-app') {
+                    sh 'mvn test'
+                }
+            }
+        }
+
+        stage('Package') {
+            steps {
+                dir('calculator-app') {
+                    sh 'mvn package'
+                }
+            }
+        }
+    }
 }
